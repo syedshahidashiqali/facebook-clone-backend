@@ -4,6 +4,10 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 
+// imports routes
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
+
 dotenv.config();
 
 const app = express();
@@ -13,9 +17,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get("/", (req,res) => {
-    res.send("Welcome to hompage")
-})
+// routes
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/auth", authRoute);
 
 const PORT = process.env.PORT || 5000;
 
