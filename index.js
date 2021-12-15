@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const cors = require("cors");
 
 // imports routes
 const userRoute = require("./routes/users");
@@ -17,6 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
+app.use(cors());
 
 // routes
 app.use("/api/v1/users", userRoute);
