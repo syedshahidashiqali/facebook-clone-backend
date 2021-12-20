@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
 
 // imports routes
 const userRoute = require("./routes/users");
@@ -24,6 +26,26 @@ app.use(cors());
 app.use("/api/v1/users", userRoute);
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/posts", postRoute);
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null,"public/images");
+    },
+    filename: (req, file, cb) => {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/v1/upload", upload.single("file"), (req, res) => {
+    try {
+        return res.status(200).json("File uploaded successfully!");
+    } catch(err){
+        console.log(err);
+    }
+});
 
 const PORT = process.env.PORT || 5000;
 
