@@ -48,13 +48,12 @@ app.post("/api/v1/upload", upload.single("file"), (req, res) => {
 });
 
 app.get("/", (req, res) =>{
-    res.json("Welcome to the Social Meida (Facebook clone) server!")
+    res.json("Welcome to the Social Media (Facebook clone) server!")
 });
 
 const PORT = process.env.PORT || 5000;
 
 const uri = process.env.ATLAS_URI;
-// const uri = "mongodb+srv://shahid:12345@cluster0.b31gp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 // mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true}, () => {
 //     console.log("MongoDB database connection has been established successfully.")
