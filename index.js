@@ -8,9 +8,9 @@ const multer = require("multer");
 const path = require("path");
 
 // imports routes
-const userRoute = require("./routes/users");
-const authRoute = require("./routes/auth");
-const postRoute = require("./routes/posts");
+const userRoute = require("./api/users");
+const authRoute = require("./api/auth");
+const postRoute = require("./api/posts");
 
 dotenv.config();
 
