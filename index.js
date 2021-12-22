@@ -53,8 +53,8 @@ app.get("/", (req, res) =>{
 
 const PORT = process.env.PORT || 5000;
 
-// const uri = process.env.ATLAS_URI;
-const uri = "mongodb+srv://shahid:12345@cluster0.b31gp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.ATLAS_URI;
+// const uri = "mongodb+srv://shahid:12345@cluster0.b31gp.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 // mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true}, () => {
 //     console.log("MongoDB database connection has been established successfully.")
