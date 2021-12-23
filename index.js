@@ -43,7 +43,7 @@ app.post("/api/v1/upload", upload.single("file"), (req, res) => {
     try {
         return res.status(200).json("File uploaded successfully!");
     } catch(err){
-        console.log(err);
+        res.status(500).json(err);
     }
 });
 
