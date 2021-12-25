@@ -47,7 +47,7 @@ app.post("/api/v1/upload", upload.single("file"), (req, res) => {
     }
 });
 
-app.get("/", (req, res) =>{
+app.get("/api/v1", (req, res) =>{
     res.json("Welcome to the Social Media (Facebook clone) server!")
 });
 
